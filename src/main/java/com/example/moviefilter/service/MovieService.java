@@ -4,7 +4,7 @@ import com.example.moviefilter.dtos.request.MovieRequest;
 import com.example.moviefilter.dtos.response.MovieResponse;
 
 public interface MovieService {
-    MovieResponse requestMovie();
+    Object requestMovie();
 
 
 

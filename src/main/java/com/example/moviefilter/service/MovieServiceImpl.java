@@ -3,6 +3,7 @@ package com.example.moviefilter.service;
 import com.example.moviefilter.dtos.request.MovieRequest;
 import com.example.moviefilter.dtos.response.MovieResponse;
 import com.example.moviefilter.model.Movie;
+import com.example.moviefilter.model.MovieResponseData;
 import com.example.moviefilter.repository.MovieRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,17 +31,23 @@ public class MovieServiceImpl implements MovieService{
 
     private final MovieRepository movieRepository;
     @Override
-    public MovieResponse requestMovie() {
+    public Object requestMovie() {
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add(HttpHeaders.AUTHORIZATION, addToken);
+        httpHeaders.add(HttpHeaders.AUTHORIZATION, "Bearer " + addToken);
         httpHeaders.add(HttpHeaders.CONTENT_TYPE, "application/json");
         log.info("===={}====",addURL);
         log.info("===={}====",addToken);
 
         HttpEntity<?> httpEntity = new HttpEntity<>(httpHeaders);
         log.info("--->{}", httpHeaders);
-        ResponseEntity <MovieResponse> response = restTemplate.exchange(addURL, HttpMethod.GET, httpEntity, MovieResponse.class);
-//        movieRepository.save(response);
+
+        ResponseEntity <?> response = restTemplate.exchange(addURL, HttpMethod.GET, httpEntity, Object.class);
+        Object saveResponse = response.getBody();
+        MovieResponseData movieResponse = new MovieResponseData();
+        movieResponse.setResponses(saveResponse);
+
+        movieRepository.save(movieResponse);
+
         return response.getBody();
     }
 
