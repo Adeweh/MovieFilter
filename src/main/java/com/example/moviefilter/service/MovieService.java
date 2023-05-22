@@ -1,10 +1,11 @@
 package com.example.moviefilter.service;
 
-import com.example.moviefilter.dtos.request.MovieRequest;
-import com.example.moviefilter.dtos.response.MovieResponse;
+import com.example.moviefilter.model.Movie;
+
+import java.util.List;
 
 public interface MovieService {
-    Object requestMovie();
+    List<Movie> getAllMovies();
 
 
 
