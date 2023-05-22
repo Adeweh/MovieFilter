@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      database: movie-filter-api-db
+      uri: mongodb+srv://MakingMovie:MakingMovie2222@cluster0.xknpxmu.mongodb.net/
+
+
+
+
+
+server:
+  port: 8081

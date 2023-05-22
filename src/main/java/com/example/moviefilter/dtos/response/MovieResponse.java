@@ -1,11 +1,11 @@
 package com.example.moviefilter.dtos.response;
 
-import com.example.moviefilter.model.Genre;
+import com.example.moviefilter.model.Reviews;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
 public class MovieResponse {
-    private Genre genre;
+    private Reviews reviews;
 }
