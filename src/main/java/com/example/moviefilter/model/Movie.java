@@ -19,7 +19,7 @@ public class Movie {
     @Id
     private String id;
 
-    private String imbId;
+    private String imdbId;
 
     private String title;
 

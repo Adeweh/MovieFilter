@@ -21,9 +21,9 @@ public class MovieController {
         public ResponseEntity<List<Movie>> getAllMovies() {
             return ResponseEntity.ok(movieService.getAllMovies());
         }
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<Movie>> getAMovie(@PathVariable String id) {
-        return ResponseEntity.ok(movieService.getAMovies(id));
+    @GetMapping("/{imdbId}")
+    public ResponseEntity<Optional<Movie>> getAMovie(@PathVariable String imdbId) {
+        return ResponseEntity.ok(movieService.getAMovies(imdbId));
     }
 
 
